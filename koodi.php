@@ -1,4 +1,3 @@
 <?php
-  $muuttuja = "Hey";
-  echo $muuttuja;
+  echo "hello wordl";
 ?>
