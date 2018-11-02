@@ -56,26 +56,26 @@
           <div id="signup-lomake"class="container collapse">
 
           <!-- tämän form-tagin sisällä on rekisteröitymislomake -->
-          <form action="koodi.php" method="post">
+          <form action="add_user.php" method="post">
 
             <div class="form-group">
               <label>First name</label> <!-- etunimen syöttö rekisteröityessä -->
-              <input type="text" name="fname" class="form-control"  placeholder="First name">
+              <input type="text" name="sign_fname" class="form-control"  placeholder="First name">
             </div>
 
             <div class="form-group">
               <label>Last name</label> <!-- sukunimen syöttö rekisteröityessä -->
-              <input name="text" class="form-control"  placeholder="Last name">
+              <input type="text" name="sign_lname" class="form-control"  placeholder="Last name">
             </div>
 
             <div class="form-group">
               <label for="exampleInputEmail1">Email</label> <!-- sähköpostiosoitteen syöttö rekisteröityessä -->
-              <input type="email" class="form-control" id="exampleInputemail2" placeholder="Email">
+              <input type="email" name="sign_email" class="form-control" id="exampleInputemail2" placeholder="Email">
             </div>
 
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label> <!-- salasanan syöttö rekisteröityessä -->
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input type="password" name="sign_password"class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
