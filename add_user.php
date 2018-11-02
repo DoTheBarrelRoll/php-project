@@ -1,7 +1,7 @@
 <?php
 //luodaan yhteys tietokantaan
 $connectstr_dbhost = '';
-$connectstr_dbname = 'mydb';
+$connectstr_dbname = '';
 $connectstr_dbusername = '';
 $connectstr_dbpassword = '';
 
