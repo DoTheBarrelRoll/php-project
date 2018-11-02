@@ -1,3 +1,25 @@
-* {
-  background-color: black;
+html, body {
+  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+body {
+  background-image: url("background.jpg");
+  background-repeat: repeat;
+}
+
+.container {
+  background-color: white;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.jumbotron {
+  padding-top: 20px;
+  text-align: center;
+}
+
+a {
+  margin-top: 10px;
 }

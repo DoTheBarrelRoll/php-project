@@ -22,7 +22,7 @@
 
       <div class="row">
 
-        <div class="col">
+        <div class="col-lg-6 col-12">
           <!-- tässä login-collapsen avaava nappi -->
           <a href="#login-lomake" class="btn btn-success"
              data-toggle="collapse" style="margin-bottom: 30px;">Log in</a>
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-        <div class="col">
+        <div class="col-lg-6 col-12">
           <!-- tässä signup-collapsen avaava nappi -->
           <a href="#signup-lomake" class="btn btn-primary"
              data-toggle="collapse" style="margin-bottom: 30px;">Sign up</a>
