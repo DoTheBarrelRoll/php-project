@@ -1,7 +1,7 @@
 <?php
 
 $connectstr_dbhost = '';
-$connectstr_dbname = 'mydb';
+$connectstr_dbname = 'localdb';
 $connectstr_dbusername = '';
 $connectstr_dbpassword = '';
 
@@ -35,7 +35,7 @@ echo "Host information: " . mysqli_get_host_info($conn) . PHP_EOL;
 
 
   $email = $_POST["email"];
-  $passu = $_POST["password"];
+  $passu = hash('sha512', $_POST["password"]);
 
   $sql = "SELECT * FROM userinfo WHERE email='$email' AND password='$passu'" ;
 
