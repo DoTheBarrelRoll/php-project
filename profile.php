@@ -26,8 +26,7 @@ $sql = "SELECT fname FROM userinfo WHERE email='$_SESSION["username"]'";
 
 $result = mysqli_query($conn, $sql);
 
-while($row = mysql_fetch_array($result)) {
-// Print a single column data
+while($row = mysqli_fetch_array($result)) {
     echo print_r($row);       // Print the entire row data
 }
 
