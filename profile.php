@@ -4,6 +4,33 @@ session_start();
 echo $_SESSION["username"];
 echo "asd";
 
+$connectstr_dbhost = '';
+$connectstr_dbname = 'localdb';
+$connectstr_dbusername = '';
+$connectstr_dbpassword = '';
+
+foreach ($_SERVER as $key => $value) {
+if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+continue;
+}
+
+$connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+$connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+$connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+}
+
+
+$conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
+
+$sql = "SELECT fname FROM userinfo WHERE email='$_SESSION["username"]'";
+
+$result = $conn->query($sql);
+
+while($row = mysql_fetch_array($result)) {
+  $_SESSION["fname"] = $row['fname']
+}
+
+
  ?>
 
  <html lang="en">
@@ -18,14 +45,14 @@ echo "asd";
            crossorigin="anonymous">
      <link rel="stylesheet" href="tyyli.css">
 
-     <title>Hello,<?php echo $_SESSION["username"]; ?></title>
+     <title>My profile</title>
    </head>
 
    <body>
 
      <div class="container">
        <div class="jumbotron">
-         <h1>Welcome, user!</h1>
+         <h1>Welcome, <?php echo $_SESSION["fname"]; ?></h1>
        </div>
         <form action="logout.php" method="post">
           <button type="submit" class="btn">Log out</button>

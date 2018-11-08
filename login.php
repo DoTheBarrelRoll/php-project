@@ -26,9 +26,6 @@ exit;
 }
 
 
-
-
-
   $email = $_POST["email"];
   $passu = hash('sha512', $_POST["password"]);
 
