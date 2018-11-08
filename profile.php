@@ -27,6 +27,9 @@ echo "asd";
        <div class="jumbotron">
          <h1>Welcome, user!</h1>
        </div>
+        <form action="logout.php" method="post">
+          <button type="submit" class="btn">Log out</button>
+        </form>
 
 
        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
