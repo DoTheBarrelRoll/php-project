@@ -24,12 +24,12 @@
 
         <div class="col-lg-6 col-12">
           <!-- tässä login-collapsen avaava nappi -->
-          <a href="#login-lomake" class="btn btn-success"
+          <a href="#login-lomake" class="btn btn-success pull-right"
              data-toggle="collapse" style="margin-bottom: 30px;">Log in</a>
           <div id="login-lomake"class="container collapse">
 
           <!-- tämän form-tagin sisällä on kirjautumislomake -->
-          <form action="koodi.php" method="post">
+          <form action="login.php" method="post">
 
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label> <!-- sähköpostiosoitteen syöttö kirjautuessa -->
