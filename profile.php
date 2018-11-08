@@ -23,7 +23,7 @@ session_start();
 
      <div class="container">
        <div class="jumbotron">
-         <h1>Hello  to the shceluder</h1>
+         <h1>Welcome, user!</h1>
        </div>
 
 

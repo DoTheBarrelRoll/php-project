@@ -46,8 +46,8 @@ echo "Host information: " . mysqli_get_host_info($conn) . PHP_EOL;
   if ($result->num_rows > 0) {
 // output data of each row
   while($row = $result->fetch_assoc()) {
-      echo "Logged in!";
       $_SESSION["username"] = $email;
+      header("Location: https://1701560.azurewebsites.net/profile.php")
     }
   } else {
       echo "Incorrect email or password";
