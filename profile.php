@@ -27,7 +27,7 @@ $sql = "SELECT fname FROM userinfo WHERE email='$_SESSION["username"]'";
 $result = $conn->query($sql);
 
 while($row = mysql_fetch_array($result)) {
-  $_SESSION["fname"] = $row['fname']
+  $_SESSION["fname"] = $row['fname'];
 }
 
 
