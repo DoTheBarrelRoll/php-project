@@ -42,13 +42,13 @@ exit;
   if ($result->num_rows > 0) {
 // output data of each row
   while($row = $result->fetch_assoc()) {
-      $_SESSION["username"] = $email;
-      header("Location: https://1701560.azurewebsites.net/profile.php")
+
     }
   } else {
       echo "Incorrect email or password";
   }
-
+  $_SESSION["username"] = $email;
+  header("Location: https://1701560.azurewebsites.net/profile.php")
 
   mysqli_close($conn);
 
