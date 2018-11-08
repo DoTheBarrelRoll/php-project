@@ -28,7 +28,7 @@ while($row = mysqli_fetch_array($result)) {
     echo print_r($row);       // Print the entire row data
 }
 
-$user = $row['username'];
+$user = $row['fname'];
 
 
  ?>
