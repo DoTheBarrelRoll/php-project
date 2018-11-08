@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $connectstr_dbhost = '';
 $connectstr_dbname = 'localdb';
