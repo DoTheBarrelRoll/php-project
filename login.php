@@ -47,6 +47,7 @@ echo "Host information: " . mysqli_get_host_info($conn) . PHP_EOL;
 // output data of each row
   while($row = $result->fetch_assoc()) {
       echo "Logged in!";
+      $_SESSION["username"] = $email;
     }
   } else {
       echo "Incorrect email or password";

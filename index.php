@@ -1,4 +1,7 @@
 ﻿<!doctype html>
+<?php
+  session_start();
+?>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -24,7 +27,7 @@
 
         <div class="col-lg-6 col-12">
           <!-- tässä login-collapsen avaava nappi -->
-          <a href="#login-lomake" class="btn btn-success pull-right"
+          <a href="#login-lomake" class="btn btn-success" id="login-nappi"
              data-toggle="collapse" style="margin-bottom: 30px;">Log in</a>
           <div id="login-lomake"class="container collapse">
 

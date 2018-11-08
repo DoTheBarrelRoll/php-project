@@ -1,4 +1,5 @@
 <?php
+session_start();
 //luodaan yhteys tietokantaan
 $connectstr_dbhost = '';
 $connectstr_dbname = 'localdb';
@@ -31,6 +32,5 @@ $checked = mysqli_query($conn, $check_email);
 
 
 header("Location: https://1701560.azurewebsites.net/")
-
 
 ?>
