@@ -76,12 +76,14 @@
               <label for="exampleInputEmail1">Email</label> <!-- sähköpostiosoitteen syöttö rekisteröityessä -->
               <input type="email" name="sign_email"
                      class="form-control" id="exampleInputemail2" placeholder="Email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
 
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label> <!-- salasanan syöttö rekisteröityessä -->
               <input type="password" name="sign_password"
                      class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <small id="emailHelp" class="form-text text-muted">Passwords are hashed with SHA512 so no one can see them, not even us!</small>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>

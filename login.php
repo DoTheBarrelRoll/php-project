@@ -16,10 +16,7 @@ $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
 $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
 
-echo "dbhost: ".$connectstr_dbhost."<br>";
-echo "dbname: ".$connectstr_dbname."<br>";
-echo "dbusername: ".$connectstr_dbusername."<br>";
-echo "dbpassword: ".$connectstr_dbpassword."<br>";
+
 
 $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
 
@@ -30,8 +27,7 @@ echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
 exit;
 }
 
-echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-echo "Host information: " . mysqli_get_host_info($conn) . PHP_EOL;
+
 
 
 
