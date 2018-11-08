@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-echo $_SESSION["username"];
-echo "asd";
 
 $connectstr_dbhost = '';
 $connectstr_dbname = 'localdb';
