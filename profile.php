@@ -52,7 +52,7 @@ while($row = mysqli_fetch_array($result)) {
 
      <div class="container">
        <div class="jumbotron">
-         <h1>Welcome, <?php echo $_SESSION["fname"]; ?></h1>
+         <h1>Welcome, <?php echo "{$_SESSION["fname"]}"; ?></h1>
        </div>
         <form action="logout.php" method="post">
           <button type="submit" class="btn">Log out</button>
