@@ -24,11 +24,13 @@ $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_d
 
 $sql = "SELECT fname FROM userinfo WHERE email='$_SESSION["username"]'";
 
-$result = $conn->query($sql);
+$result = mysqli_query($conn, $sql);
 
-$row = mysql_fetch_array($result);
+while($row = mysql_fetch_array($result)) {
+// Print a single column data
+    echo print_r($row);       // Print the entire row data
+}
 
-$_SESSION["fname"] = $row['fname'];
 
 
 
