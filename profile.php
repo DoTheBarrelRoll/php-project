@@ -28,7 +28,7 @@ while($row = mysqli_fetch_array($result)) {
     echo print_r($row);       // Print the entire row data
 }
 
-
+$user = $row['username'];
 
 
  ?>
@@ -52,7 +52,7 @@ while($row = mysqli_fetch_array($result)) {
 
      <div class="container">
        <div class="jumbotron">
-         <h1>Welcome, <?php echo "{$row[0]}"; ?></h1>
+         <h1>Welcome, <?php echo $user; ?></h1>
        </div>
         <form action="logout.php" method="post">
           <button type="submit" class="btn">Log out</button>
