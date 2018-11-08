@@ -31,6 +31,6 @@ $create_time = "UPDATE `userinfo` SET `join_time` = NOW() WHERE `userinfo`.`emai
 $checked = mysqli_query($conn, $check_email);
 
 
-header("Location: https://1701560.azurewebsites.net/")
+header("Location: https://1701560.azurewebsites.net/profile.php")
 
 ?>
