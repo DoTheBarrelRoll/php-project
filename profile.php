@@ -20,7 +20,7 @@ $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 
 $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
 
-$sql = "SELECT fname FROM userinfo WHERE email='$_SESSION["username"]'";
+$sql = "SELECT fname FROM userinfo WHERE email='{$_SESSION["username"]}'";
 
 $result = mysqli_query($conn, $sql);
 
