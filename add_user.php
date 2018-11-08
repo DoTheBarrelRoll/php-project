@@ -29,20 +29,8 @@ $create_time = "UPDATE `userinfo` SET `join_time` = NOW() WHERE `userinfo`.`emai
 
 $checked = mysqli_query($conn, $check_email);
 
-echo $check_email;
-echo mysqli_num_rows($checked);
 
-if (mysqli_num_rows($checked) > 0) {
-  echo "Email is already registered";
-} else {
-  $conn->query($sql);
-  $conn->query($create_time);
-  echo $sql . "<br>";
-  echo $password;
-
-}
-
-
+header("Location: https://1701560.azurewebsites.net/")
 
 
 ?>
