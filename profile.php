@@ -18,7 +18,7 @@ echo "asd";
            crossorigin="anonymous">
      <link rel="stylesheet" href="tyyli.css">
 
-     <title>Hello, user!</title>
+     <title>Hello,<?php echo $_SESSION["username"]; ?></title>
    </head>
 
    <body>
