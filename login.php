@@ -39,7 +39,7 @@ exit;
 
   if ($result->num_rows > 0) {
     $_SESSION["username"] = $email;
-    header("Location: https://1701560.azurewebsites.net/profile.php")
+    header("Location: https://1701560.azurewebsites.net/profile.php");
 
   } else {
       echo "Incorrect email or password";
