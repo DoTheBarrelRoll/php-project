@@ -47,7 +47,17 @@
                      name="password" id="exampleInputPassword1" placeholder="Password">
             </div>
 
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success" style="margin-bottom: 15px">Submit</button>
+            <br>
+            <button type="button" class="btn btn-danger"
+            data-toggle="collapse" data-target="#forgot">Forgot password?</button>
+
+            <div id="forgot" class="collapse">
+              <p>  <br>Yeah, well we're all just kind of winging it here <br>
+                   with this stuff, so maybe you should be less of <br>
+                   an addlepated twat next time and not forget it!<br>
+
+            </div>
           </form>
 
         </div>
@@ -92,7 +102,6 @@
         </div>
       </div>
     </div>
-
     </div>
 
 

@@ -52,11 +52,64 @@ $user = $row['fname'];
 
      <div class="container">
        <div class="jumbotron">
-         <h1>Welcome, <?php echo $user; ?></h1>
+         <h1>Welcome, user</h1>
        </div>
-        <form action="logout.php" method="post">
-          <button type="submit" class="btn">Log out</button>
-        </form>
+
+       <div class="row">
+         <div class="col-sm-12">
+
+           <div class="lukkari">
+              <h2> Your schedule this week comes here! </h2>
+           </div>
+
+         </div>
+       </div>
+
+       <div class="row">
+         <div class="col-sm-12">
+           <div class= "card-deck">
+
+           <div class="card">
+             <img src="scared granny.png" alt="create new" class="card-img">
+             <div class="card-body" style="align-content: center;">
+
+               <h4 class="card-title">Create a new schedule</h4>
+               <br>
+               <button type="button" class="btn btn-info card-link">Go --></button>
+
+            </div>
+          </div>
+
+          <div class="card">
+            <img src="Andyface.png" alt="manage" class="card-img">
+            <div class="card-body">
+
+              <h4 class="card-title">Manage profile</h4>
+              <br>
+              <button type="button" class="btn btn-info card-link">Go --></button>
+
+           </div>
+         </div>
+
+         <div class="card">
+           <img src="M_A_Numminen_2011.jpg" alt="create new" class="card-img">
+           <div class="card-body">
+
+             <h5 class="card-title">We have no idea what this one is going to do,
+                                    but it'll be amazing!</h4>
+             <button type="button" class="btn btn-info card-link">Go --></button>
+
+          </div>
+        </div>
+
+         </div>
+        </div>
+       </div>
+
+       <form action="logout.php" method="post">
+         <button type="submit" class="btn btn-danger" style="margin-top: 30px;">Log out</button>
+       </form>
+     </div>
 
 
        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
