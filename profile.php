@@ -24,11 +24,13 @@ $sql = "SELECT fname FROM userinfo WHERE email='{$_SESSION['username']}'";
 
 $result = mysqli_query($conn, $sql);
 
-while($row = mysqli_fetch_array($result)) {
-    echo print_r($row);       // Print the entire row data
+if ($count = $result->num_rows) {
+  echo $count;
+
+
 }
 
-$user = $row['fname'];
+
 
 
  ?>
@@ -52,14 +54,53 @@ $user = $row['fname'];
 
      <div class="container">
        <div class="jumbotron">
-         <h1>Welcome, user</h1>
+         <h1>Welcome, <?php echo $user;?></h1>
        </div>
 
        <div class="row">
          <div class="col-sm-12">
-
            <div class="lukkari">
-              <h2> Your schedule this week comes here! </h2>
+
+             <div class= "card-deck">
+             <div class="card">
+               <div class="card-body" style="align-content: center;">
+                 <h6> Ma </h6>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body" style="align-content: center;">
+                <h6> Ti </h6>
+             </div>
+           </div>
+           <div class="card">
+             <div class="card-body" style="align-content: center;">
+               <h6> Ke </h6>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body" style="align-content: center;">
+              <h6> To </h6>
+           </div>
+         </div>
+         <div class="card">
+           <div class="card-body" style="align-content: center;">
+             <h6> Pe </h6>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body" style="align-content: center;">
+            <h6> La </h6>
+         </div>
+       </div>
+       <div class="card">
+         <div class="card-body" style="align-content: center;">
+           <h6> Su </h6>
+        </div>
+      </div>
+
+          </div>
+
+           </div>
            </div>
 
          </div>
