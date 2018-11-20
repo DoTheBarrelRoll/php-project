@@ -20,15 +20,22 @@ $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 
 $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
 
-$sql = "SELECT fname FROM userinfo WHERE email='{$_SESSION['username']}'";
+$sql = "SELECT * FROM userinfo WHERE email='{$_SESSION['username']}'";
+$sql2 = "SELECT DAYNAME("2018-11-20")";
 
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql2);
 
-while($row = mysqli_fetch_array($result)) {
-    echo print_r($row);       // Print the entire row data
+if (!$result) {
+    printf("Errormessage: %s\n", mysqli_error($conn));
 }
 
-$user = $row['fname'];
+if ($count = $result->num_rows) {
+  echo $count;
+
+  while ($row = mysqli_fetch_assoc($result)) {
+    echo $row[0];
+}
+}
 
 
  ?>
@@ -52,14 +59,53 @@ $user = $row['fname'];
 
      <div class="container">
        <div class="jumbotron">
-         <h1>Welcome, user</h1>
+         <h1>Welcome, <?php echo $row['fname'];?></h1>
        </div>
 
        <div class="row">
          <div class="col-sm-12">
-
            <div class="lukkari">
-              <h2> Your schedule this week comes here! </h2>
+
+             <div class= "card-deck">
+             <div class="card">
+               <div class="card-body" style="align-content: center;">
+                 <h6> Ma </h6>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body" style="align-content: center;">
+                <h6> Ti </h6>
+             </div>
+           </div>
+           <div class="card">
+             <div class="card-body" style="align-content: center;">
+               <h6> Ke </h6>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body" style="align-content: center;">
+              <h6> To </h6>
+           </div>
+         </div>
+         <div class="card">
+           <div class="card-body" style="align-content: center;">
+             <h6> Pe </h6>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body" style="align-content: center;">
+            <h6> La </h6>
+         </div>
+       </div>
+       <div class="card">
+         <div class="card-body" style="align-content: center;">
+           <h6> Su </h6>
+        </div>
+      </div>
+
+          </div>
+
+           </div>
            </div>
 
          </div>
