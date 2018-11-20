@@ -21,21 +21,23 @@ $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
 
 $sql = "SELECT * FROM userinfo WHERE email='{$_SESSION['username']}'";
-$sql2 = "SELECT DAYNAME("2018-11-20")";
 
-$result = mysqli_query($conn, $sql2);
+
+$result = mysqli_query($conn, $sql);
 
 if (!$result) {
     printf("Errormessage: %s\n", mysqli_error($conn));
 }
 
-if ($count = $result->num_rows) {
-  echo $count;
+if ($rows = $result->num_rows) {
 
   while ($row = mysqli_fetch_assoc($result)) {
-    echo $row[0];
+    $name = $row["fname"];
+  }
 }
-}
+
+
+
 
 
  ?>
@@ -59,7 +61,7 @@ if ($count = $result->num_rows) {
 
      <div class="container">
        <div class="jumbotron">
-         <h1>Welcome, <?php echo $row['fname'];?></h1>
+         <h1>Welcome, <?php echo $name;?></h1>
        </div>
 
        <div class="row">
