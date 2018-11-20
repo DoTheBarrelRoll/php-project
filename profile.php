@@ -61,7 +61,7 @@ if ($rows = $result->num_rows) {
 
      <div class="container">
        <div class="jumbotron">
-         <h1>Welcome, <?php echo $name;?></h1>
+         <h1>Welcome, user</h1>
        </div>
 
        <div class="row">
@@ -253,48 +253,6 @@ if ($rows = $result->num_rows) {
            </div>
            </div>
 
-             <div class= "card-deck">
-             <div class="card">
-               <div class="card-body" style="align-content: center;">
-                 <h6> Ma </h6>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-body" style="align-content: center;">
-                <h6> Ti </h6>
-             </div>
-           </div>
-           <div class="card">
-             <div class="card-body" style="align-content: center;">
-               <h6> Ke </h6>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body" style="align-content: center;">
-              <h6> To </h6>
-           </div>
-         </div>
-         <div class="card">
-           <div class="card-body" style="align-content: center;">
-             <h6> Pe </h6>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body" style="align-content: center;">
-            <h6> La </h6>
-         </div>
-       </div>
-       <div class="card">
-         <div class="card-body" style="align-content: center;">
-           <h6> Su </h6>
-        </div>
-      </div>
-
-          </div>
-
-           </div>
-           </div>
-
          </div>
 
        <div class="row">
@@ -401,6 +359,7 @@ if ($rows = $result->num_rows) {
        </div>
      </div>
    </div>
+
 
        <form action="logout.php" method="post">
          <button type="submit" class="btn btn-danger" style="margin-top: 30px;">Log out</button>
