@@ -23,7 +23,7 @@ body {
 .lukkari {
   margin: auto;
   margin-bottom: 15px;
-  padding-top: 60px;
+  padding-top: 30px;
   padding-bottom: 50px;
   text-align: center;
   background-color: #eeefde;
@@ -32,6 +32,16 @@ body {
 
 a {
   margin-top: 10px;
+}
+
+.card-lukkari {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.card {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 .card-link {

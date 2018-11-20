@@ -108,8 +108,49 @@ if ($count = $result->num_rows) {
            </div>
            </div>
 
+             <div class= "card-deck">
+             <div class="card">
+               <div class="card-body" style="align-content: center;">
+                 <h6> Ma </h6>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body" style="align-content: center;">
+                <h6> Ti </h6>
+             </div>
+           </div>
+           <div class="card">
+             <div class="card-body" style="align-content: center;">
+               <h6> Ke </h6>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body" style="align-content: center;">
+              <h6> To </h6>
+           </div>
+         </div>
+         <div class="card">
+           <div class="card-body" style="align-content: center;">
+             <h6> Pe </h6>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body" style="align-content: center;">
+            <h6> La </h6>
          </div>
        </div>
+       <div class="card">
+         <div class="card-body" style="align-content: center;">
+           <h6> Su </h6>
+        </div>
+      </div>
+
+          </div>
+
+           </div>
+           </div>
+
+         </div>
 
        <div class="row">
          <div class="col-sm-12">
