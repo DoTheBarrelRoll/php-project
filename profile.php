@@ -61,7 +61,7 @@ if ($rows = $result->num_rows) {
 
      <div class="container">
        <div class="jumbotron">
-         <h1>Welcome, user</h1>
+         <h1>Welcome, <?php echo $name;?></h1>
        </div>
 
        <div class="row">
