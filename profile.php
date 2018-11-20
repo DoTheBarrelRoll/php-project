@@ -61,7 +61,7 @@ if ($count = $result->num_rows) {
          <div class="col-sm-12">
            <div class="lukkari">
 
-             <div class= "card-deck">
+             <div class= "card-deck" id="viikko">
              <div class="card">
                <div class="card-body" style="align-content: center;">
                  <h6> Ma </h6>
