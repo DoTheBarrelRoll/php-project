@@ -1,6 +1,7 @@
 ﻿<!doctype html>
 <?php
   session_start();
+  
 ?>
 <html lang="en">
   <head>
@@ -27,7 +28,7 @@
 
         <div class="col-lg-6 col-12">
           <!-- tässä login-collapsen avaava nappi -->
-          <a href="#login-lomake" class="btn btn-success" id="login-nappi"
+          <a href="#login-lomake" class="btn btn-success btn-block  btn-lg" id="login-nappi"
              data-toggle="collapse" style="margin-bottom: 30px;">Log in</a>
           <div id="login-lomake"class="container collapse">
 
@@ -65,7 +66,7 @@
 
         <div class="col-lg-6 col-12">
           <!-- tässä signup-collapsen avaava nappi -->
-          <a href="#signup-lomake" class="btn btn-primary"
+          <a href="#signup-lomake" class="btn btn-primary btn-block btn-lg"
              data-toggle="collapse" style="margin-bottom: 30px;">Sign up</a>
           <div id="signup-lomake"class="container collapse">
 

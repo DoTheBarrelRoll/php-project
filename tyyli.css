@@ -54,15 +54,15 @@ a {
 }
 
 .card-img {
-  max-width: 11%;
-  max-height: 11%;
+  max-width: 75px;
+  max-height: 75px;
   float:left;
   padding-right: 10px;
 }
 
 .nav-img {
-  max-width: 15%;
-  max-height: 15%;
+  max-width: 25px;
+  max-height: 25px;
 }
 
 .card-link, .card-img, .card-title {
@@ -70,6 +70,10 @@ a {
   margin-right: auto;
 }
 
+.aika {
+  border: 0px solid;
+}
+
 #login-nappi {
-  float: right;
+
 }

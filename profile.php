@@ -2,6 +2,8 @@
 session_start();
 
 
+
+
 $connectstr_dbhost = '';
 $connectstr_dbname = 'localdb';
 $connectstr_dbusername = '';
@@ -65,7 +67,7 @@ if ($rows = $result->num_rows) {
        </div>
 
        <div class="row">
-         <div class="col-sm-12">
+         <div class="col-md-12">
            <div class="lukkari">
              <h2> Your schedule this week </h2>
              <h6> (Click the weekdays to open)</h4>
@@ -263,27 +265,22 @@ if ($rows = $result->num_rows) {
 
                <li class="nav-item">
                  <a class="nav-link active" data-toggle="tab" href="#newItem">
-                 <img src="NewCalendarItem_small.png" style="float:left;"
-                      alt="" class="nav-img">
                  <h5>Add a new event</h5>
                </a>
              </li>
 
                <li class="nav-item">
                  <a class="nav-link" data-toggle="tab" href="#archive">
-                 <img src="full-schedule_small.png" style="float:left;"
-                      alt="" class="nav-img">
                  <h5>View full Schedule</h5>
                </a>
              </li>
 
                <li class="nav-item">
                  <a class="nav-link" data-toggle="tab" href="#profile">
-                 <img src="editProfile_small.png" style="float:left;"
-                      alt="create new" class="nav-img">
                  <h5>Manage profile</h5>
                </a>
              </li>
+           </ul>
 
              </div>
             </div>
@@ -291,40 +288,46 @@ if ($rows = $result->num_rows) {
           <div class="col-sm-9">
             <div class="tab-content">
 
-          <div id="newItem" class="container tab-pane active card-options media">
+          <div id="newItem" class="tab-pane active card-options media">
               <img src="NewCalendarItem_small.png"
                    alt="create new" class="card-img">
 
               <div class="media-body">
-                <br>
+                <br><br>
                 <h3> Add a new calendar event </h3>
               </div>
 
-              <!-- tämän form-tagin sisällä on lomake, joka lisää merkinnän -->
+
               <form action="profile-proto.php" method="post">
 
                 <div class="form-group">
-                  <input type="text" name=""
+                  <label>Choose the date of your event</label>
+                  <input type="date" name=""
                          class="form-control"  placeholder="Date">
                 </div>
 
-                <div class="form-inline">
-                  <input type="text" name=""
+                <div class="form-group">
+                  <label>Start time:  </label>
+                  <input type="time" name="startTime" style="max-width:90px;"
                          class="form-control"  placeholder="Starts">
+                </div>
 
-                  <input type="email" name="sign_email"
+                <div class="form-group">
+                  <label>End time:  </label>
+                  <input type="time" name="endTime" style="max-width:90px;"
                          class="form-control" placeholder="Ends">
                 </div>
 
                 <div class="form-group">
-                  <label>Description</label> <!-- salasanan syöttö rekisteröityessä -->
                   <textarea rows="3" name="description"
-                            class="form-control" style="max-height:50%;"></textarea>
+                            class="form-control" style="max-height:75px;"
+                            placeholder="Description"></textarea>
                   <small id="descHelp" class="form-text text-muted">
                     Describe your event in 150 characters. Please do this. Reading these
                     is the only way I feel like I have friends.
                   </small>
                 </div>
+              </form>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
               <div>
@@ -332,7 +335,7 @@ if ($rows = $result->num_rows) {
             </div>
           </div>
 
-          <div id="archive" class="container tab-pane card-options media">
+          <div id="archive" class="tab-pane card-options media">
               <img src="full-schedule_small.png"
                    alt="create new" class="card-img">
 
@@ -350,9 +353,40 @@ if ($rows = $result->num_rows) {
 
               <div class="media-body">
                 <h3>Manage your user profile</h3>
+                <br><br>
               </div>
               <div>
+                <form action="add_user.php" method="post">
 
+                  <div class="form-group">
+                    <label>Change your first name</label> <!-- etunimen syöttö rekisteröityessä -->
+                    <input type="text" name="new_fname" class="form-control"  placeholder="New first name">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Change your last name</label> <!-- sukunimen syöttö rekisteröityessä -->
+                    <input type="text" name="new_lname" class="form-control"  placeholder="New last name">
+                  </div>
+
+                  <div class="form-inline">
+                    <label for="exampleInputPassword1">Enter a new password</label>
+                    <input type="password" name="new_password"
+                           class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+                    <label for="exampleInputPassword1">Re-enter your new password</label>
+                    <input type="password" name="new_password"
+                           class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Enter your old password to allow changes</label> <!-- salasanan syöttö rekisteröityessä -->
+                    <input type="password" name="sign_password"
+                           class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <small id="emailHelp" class="form-text text-muted">Passwords are hashed with SHA512 so no one can see them, not even us!</small>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
           </div>
 
