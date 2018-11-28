@@ -61,7 +61,7 @@ $viikko = $date->format("Y-d-m W");
 
 function getDailyEvents($weekday) {
 try {
-  while ($row = $result->fetch_assoc()) {
+  while ($row = $GLOBALS['result']->fetch_assoc()) {
     if ($row["eventDate"] == $weekday) {
       echo $row["startTime"] . " - " . $row["endTime"] . $row["description"];
       $date = new DateTime($row["eventDate"]);
@@ -199,7 +199,8 @@ if ($result->num_rows > 0) {
               <h3> Monday </h3>
               <h5>
                  <?php
-
+                 $monday_date = date("Y-m-d", strtotime("Monday"));
+                 echo $monday_date;
                 ?>
              </h5>
             </div>
@@ -208,7 +209,7 @@ if ($result->num_rows > 0) {
               <br>
               <h4>
                 <?php
-
+                  getDailyEvents($monday_date);
                 ?>
               </h4>
             </div>
