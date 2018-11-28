@@ -70,12 +70,12 @@ if ($rows = $result->num_rows) {
          <div class="col-md-12">
            <div class="lukkari">
              <h2> Your schedule this week </h2>
-             <h6> (Click the weekdays to open)</h4>
+             <h6> (Click the weekdays to open)</h6>
              <br>
 
-             <div class= "card-deck">
+             <div>
 
-             <div class="card card-lukkari">
+             <div class="card-lukkari">
                <button type="button" class="btn btn-block btn-outline-primary btn-lukkari"
                        data-toggle="collapse" data-target="#lukkari-ma">
                <div class="card-body" style="align-content: center;">
@@ -84,16 +84,16 @@ if ($rows = $result->num_rows) {
             </button>
             </div>
 
-            <div class="card card-lukkari">
+            <div class="card-lukkari ">
               <button type="button" class="btn btn-block btn-outline-primary btn-lukkari"
                       data-toggle="collapse" data-target="#lukkari-ti">
-              <div class="card-body" style="align-content: center;">
+              <div class="card-body" style="align-ontent: center;">
                <h4>Tue</h4>
              </div>
            </button>
            </div>
 
-           <div class="card card-lukkari">
+           <div class="card-lukkari ">
              <button type="button" class="btn btn-block btn-outline-primary btn-lukkari"
                      data-toggle="collapse" data-target="#lukkari-ke">
              <div class="card-body" style="align-content: center;">
@@ -102,7 +102,7 @@ if ($rows = $result->num_rows) {
           </button>
           </div>
 
-          <div class="card card-lukkari">
+          <div class="card-lukkari ">
             <button type="button" class="btn btn-block btn-outline-primary btn-lukkari"
                     data-toggle="collapse" data-target="#lukkari-to">
             <div class="card-body" style="align-content: center;">
@@ -111,7 +111,7 @@ if ($rows = $result->num_rows) {
          </button>
          </div>
 
-         <div class="card card-lukkari">
+         <div class="card-lukkari ">
            <button type="button" class="btn btn-block btn-outline-primary btn-lukkari"
                    data-toggle="collapse" data-target="#lukkari-pe">
            <div class="card-body" style="align-content: center;">
@@ -120,7 +120,7 @@ if ($rows = $result->num_rows) {
         </button>
         </div>
 
-        <div class="card card-lukkari">
+        <div class="card-lukkari">
           <button type="button" class="btn btn-block btn-outline-danger btn-lukkari"
                   data-toggle="collapse" data-target="#lukkari-la">
           <div class="card-body" style="align-content: center;">
@@ -129,7 +129,7 @@ if ($rows = $result->num_rows) {
        </button>
        </div>
 
-       <div class="card card-lukkari">
+       <div class="card-lukkari">
          <button type="button" class="btn btn-block btn-outline-danger btn-lukkari"
                  data-toggle="collapse" data-target="#lukkari-su">
          <div class="card-body" style="align-content: center;">
@@ -257,148 +257,155 @@ if ($rows = $result->num_rows) {
 
          </div>
 
-       <div class="row">
-         <div class="col-sm-3">
+         <div class="row">
+           <div class="col-md-3">
 
-           <div id="navCard" class="card card-options ">
-             <ul class="nav nav-tabs flex-column" role="tablist">
+             <div id="navCard" class="card-options ">
+               <ul class="nav flex-column" role="tablist">
 
-               <li class="nav-item">
-                 <a class="nav-link active" data-toggle="tab" href="#newItem">
-                 <h5>Add a new event</h5>
-               </a>
-             </li>
+                 <li class="nav-item">
+                   <a class="valinta-nappi nav-link active"
+                           data-toggle="tab" href="#newItem">
+                   <h5>Add a new event</h5>
+                 </a>
+               </li>
 
-               <li class="nav-item">
-                 <a class="nav-link" data-toggle="tab" href="#archive">
-                 <h5>View full Schedule</h5>
-               </a>
-             </li>
+                 <li class="nav-item">
+                   <a class="valinta-nappi nav-link"
+                           data-toggle="tab" href="#archive">
+                   <h5>View full Schedule</h5>
+                 </a>
+               </li>
 
-               <li class="nav-item">
-                 <a class="nav-link" data-toggle="tab" href="#profile">
-                 <h5>Manage profile</h5>
-               </a>
-             </li>
-           </ul>
+                 <li class="nav-item">
+                   <a class="valinta-nappi nav-link"
+                           data-toggle="tab" href="#profile">
+                   <h5>Manage profile</h5>
+                 </a>
+               </li>
+             </ul>
 
-             </div>
-            </div>
+               </div>
 
-          <div class="col-sm-9">
-            <div class="tab-content">
-
-          <div id="newItem" class="tab-pane active card-options media">
-              <img src="NewCalendarItem_small.png"
-                   alt="create new" class="card-img">
-
-              <div class="media-body">
-                <br><br>
-                <h3> Add a new calendar event </h3>
+               <form action="logout.php" method="post">
+                 <button type="submit" class="btn btn-danger" style="margin-top: 30px;">Log out</button>
+               </form>
               </div>
 
+            <div class="col-md-9">
+              <div class="tab-content">
 
-              <form action="profile-proto.php" method="post">
+            <div id="newItem" class="tab-pane active card-options media">
+                <img src="NewCalendarItem_small.png"
+                     alt="create new" class="card-img">
 
-                <div class="form-group">
-                  <label>Choose the date of your event</label>
-                  <input type="date" name=""
-                         class="form-control"  placeholder="Date">
+                <div class="media-body">
+                  <h3> Add a new calendar event </h3>
+                  <br><br>
                 </div>
 
-                <div class="form-group">
-                  <label>Start time:  </label>
-                  <input type="time" name="startTime" style="max-width:90px;"
-                         class="form-control"  placeholder="Starts">
-                </div>
 
-                <div class="form-group">
-                  <label>End time:  </label>
-                  <input type="time" name="endTime" style="max-width:90px;"
-                         class="form-control" placeholder="Ends">
-                </div>
-
-                <div class="form-group">
-                  <textarea rows="3" name="description"
-                            class="form-control" style="max-height:75px;"
-                            placeholder="Description"></textarea>
-                  <small id="descHelp" class="form-text text-muted">
-                    Describe your event in 150 characters. Please do this. Reading these
-                    is the only way I feel like I have friends.
-                  </small>
-                </div>
-              </form>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-              <div>
-
-            </div>
-          </div>
-
-          <div id="archive" class="tab-pane card-options media">
-              <img src="full-schedule_small.png"
-                   alt="create new" class="card-img">
-
-              <div class="media-body">
-                <h3> View your full schedule</h3>
-              </div>
-              <div>
-
-              </div>
-            </div>
-
-          <div id="profile" class="container tab-pane card-options media">
-              <img src="editProfile_small.png"
-                   alt="create new" class="card-img">
-
-              <div class="media-body">
-                <h3>Manage your user profile</h3>
-                <br><br>
-              </div>
-              <div>
-                <form action="add_user.php" method="post">
+                <form action="profile-proto.php" method="post">
 
                   <div class="form-group">
-                    <label>Change your first name</label> <!-- etunimen syöttö rekisteröityessä -->
-                    <input type="text" name="new_fname" class="form-control"  placeholder="New first name">
+                    <label>Choose the date of your event</label>
+                    <input type="date" name="" style="max-width:150px;"
+                           class="form-control"  placeholder="Date">
                   </div>
 
+                  <div class="form-group" style="display:inline-block;">
+                    <label>Start time:  </label>
+                    <input type="time" name="startTime" style="max-width:90px;"
+                           class="form-control"  placeholder="Starts">
+                  </div>
+
+                  <div class="form-group" style="display:inline-block; margin-left: 15px;">
+                    <label>End time:  </label>
+                    <input type="time" name="endTime" style="max-width:90px;"
+                           class="form-control" placeholder="Ends">
+                  </div>
+                  <br>
                   <div class="form-group">
-                    <label>Change your last name</label> <!-- sukunimen syöttö rekisteröityessä -->
-                    <input type="text" name="new_lname" class="form-control"  placeholder="New last name">
+                    <textarea rows="3" name="description"
+                              class="form-control" style="max-height:75px;"
+                              placeholder="Description"></textarea>
+                    <small id="descHelp" class="form-text text-muted">
+                      Describe your event in 150 characters. Please do this. Reading these
+                      is the only way I feel like I have friends.
+                    </small>
                   </div>
-
-                  <div class="form-inline">
-                    <label for="exampleInputPassword1">Enter a new password</label>
-                    <input type="password" name="new_password"
-                           class="form-control" id="exampleInputPassword1" placeholder="Password">
-
-                    <label for="exampleInputPassword1">Re-enter your new password</label>
-                    <input type="password" name="new_password"
-                           class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Enter your old password to allow changes</label> <!-- salasanan syöttö rekisteröityessä -->
-                    <input type="password" name="sign_password"
-                           class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    <small id="emailHelp" class="form-text text-muted">Passwords are hashed with SHA512 so no one can see them, not even us!</small>
-                  </div>
+                </form>
 
                   <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-          </div>
+                <div>
 
+              </div>
+            </div>
+
+            <div id="archive" class="tab-pane card-options media">
+                <img src="full-schedule_small.png"
+                     alt="create new" class="card-img">
+
+                <div class="media-body">
+                  <h3> View your full schedule</h3>
+                </div>
+                <div>
+
+                </div>
+              </div>
+
+            <div id="profile" class="container tab-pane card-options media">
+                <img src="editProfile_small.png"
+                     alt="create new" class="card-img">
+
+                <div class="media-body">
+                  <h3>Manage your user profile</h3>
+                  <br><br>
+                </div>
+                <div>
+                  <form action="" method="post">
+
+                    <div class="form-group">
+                      <label>Change your first name</label> <!-- etunimen syöttö rekisteröityessä -->
+                      <input type="text" name="new_fname" class="form-control"  placeholder="New first name">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Change your last name</label> <!-- sukunimen syöttö rekisteröityessä -->
+                      <input type="text" name="new_lname" class="form-control"  placeholder="New last name">
+                    </div>
+
+                    <div class="form-group" style="display:inline-block;">
+                      <label for="exampleInputPassword1">Enter a new password</label>
+                      <input type="password" name="new_password"
+                             class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+
+                    <div class="form-group" style="display:inline-block;">
+                      <label for="exampleInputPassword1">Re-enter your new password</label>
+                      <input type="password" name="new_password"
+                             class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Enter your old password to allow changes</label> <!-- salasanan syöttö rekisteröityessä -->
+                      <input type="password" name="sign_password"
+                             class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      <small id="emailHelp" class="form-text text-muted">Passwords are hashed with SHA512 so no one can see them, not even us!</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+              </div>
+            </div>
+
+         </div>
        </div>
      </div>
-   </div>
 
 
-       <form action="logout.php" method="post">
-         <button type="submit" class="btn btn-danger" style="margin-top: 30px;">Log out</button>
-       </form>
-     </div>
+
+       </div>
 
 
        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
