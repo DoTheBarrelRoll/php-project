@@ -26,7 +26,7 @@
   }
 
 
-  $sql = "UPDATE `userinfo` SET `password`="jotain" WHERE `email` = sessio_sähköposti"
+  $sql = "UPDATE 'userinfo' SET 'password'= WHERE 'email' = sessio_sähköposti";
 
   $conn->query($sql);
 

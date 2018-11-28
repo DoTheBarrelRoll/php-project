@@ -34,8 +34,14 @@
 
   $result = $conn->query($sql);
 
+
+
   if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $_SESSION["userID"] = $row["userID"];
+    }
     $_SESSION["username"] = $email;
+
     header("Location: https://1701560.azurewebsites.net/profile.php");
 
   } else {

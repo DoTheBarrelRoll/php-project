@@ -1,7 +1,16 @@
 <?php
+error_reporting(E_ALL);
+ini_set('error_reporting', E_ALL);
+
+ini_set('error_log', 'script_errors.log');  // change here
+ini_set('log_errors', 'On');
 session_start();
 
 
+
+if (!(isset($_COOKIE[session_name()]))) {
+  header("Location: https://1701560.azurewebsites.net");
+}
 
 
 $connectstr_dbhost = '';
@@ -38,6 +47,50 @@ if ($rows = $result->num_rows) {
   }
 }
 
+$sql2 = "SELECT * FROM calendaritem WHERE userID='{$_SESSION['userID']}' ORDER BY eventDate, startTime, endTime";
+$sql3= "SET DATEFIRST 1 SELECT * FROM calendaritem WHERE userID='{$_SESSION['userID']}'
+AND 'eventDate' >= dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate()))
+AND 'eventDate' <  dateadd(day, 8-datepart(dw, getdate()), CONVERT(date,getdate()))";
+
+$result = $conn->query($sql2);
+
+$ddate = date();
+$date = new DateTime($ddate);
+$viikko = $date->format("Y-d-m W");
+
+
+function getDailyEvents($weekday) {
+try {
+  while ($row = $result->fetch_assoc()) {
+    if ($row["eventDate"] == $weekday) {
+      echo $row["startTime"] . " - " . $row["endTime"] . $row["description"];
+      $date = new DateTime($row["eventDate"]);
+      $viikko = $date->format("W");
+      $viikonpäivä = $date->format("l");
+      echo "<br>";
+    } else {
+    }
+  }
+} catch (Exception $e) {
+  echo $e->getMessage();
+}
+
+  }
+
+/*
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    echo  $row["description"], " ";
+    $date = new DateTime($row["eventDate"]);
+    $viikko = $date->format("W");
+    $viikonpäivä = $date->format("l");
+    echo $viikko , " ", $viikonpäivä;
+    echo "<br>";
+  }
+} else {
+  echo "Tapahtumia ei löytynyt";
+}
+*/
 
 
 
@@ -144,13 +197,19 @@ if ($rows = $result->num_rows) {
 
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Monday </h3>
-              <h5> (Date here) </h5>
+              <h5>
+                 <?php
+
+                ?>
+             </h5>
             </div>
 
             <div class="col-sm-8">
               <br>
-              <h4> Your schedule for this Monday comes here
-                   once we figure out how to do it
+              <h4>
+                <?php
+
+                ?>
               </h4>
             </div>
           </div>
@@ -209,14 +268,22 @@ if ($rows = $result->num_rows) {
 
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Friday </h3>
-              <h5> (Date here) </h5>
+              <h5>
+                <?php
+                  $unix = strtotime("Friday");
+                  $friday_date = date("Y-m-d", $unix);
+                  echo $friday_date;
+                ?>
+            </h5>
             </div>
 
             <div class="col-sm-8">
               <br>
-              <img src="https://i.ytimg.com/vi/kfVsfOSbJY0/maxresdefault.jpg"
-                   alt="F R I D A Y" style="max-width:75%;max-height:75%;">
-              <h4> GOTTA' GET DOWN, GOTTA' EAT CEREAL </h4>
+              <h4>
+                  <?php
+                    getDailyEvents($friday_date);
+                  ?>
+              </h4>
             </div>
           </div>
 
@@ -305,11 +372,11 @@ if ($rows = $result->num_rows) {
                 </div>
 
 
-                <form action="profile-proto.php" method="post">
+                <form action="addCalendarItem.php" method="post">
 
                   <div class="form-group">
                     <label>Choose the date of your event</label>
-                    <input type="date" name="" style="max-width:150px;"
+                    <input type="date" name="eventDate" style="max-width:150px;"
                            class="form-control"  placeholder="Date">
                   </div>
 
@@ -334,9 +401,11 @@ if ($rows = $result->num_rows) {
                       is the only way I feel like I have friends.
                     </small>
                   </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 
-                  <button type="submit" class="btn btn-primary">Submit</button>
+
                 <div>
 
               </div>
@@ -365,17 +434,7 @@ if ($rows = $result->num_rows) {
                 <div>
                   <form action="" method="post">
 
-                    <div class="form-group">
-                      <label>Change your first name</label> <!-- etunimen syöttö rekisteröityessä -->
-                      <input type="text" name="new_fname" class="form-control"  placeholder="New first name">
-                    </div>
-
-                    <div class="form-group">
-                      <label>Change your last name</label> <!-- sukunimen syöttö rekisteröityessä -->
-                      <input type="text" name="new_lname" class="form-control"  placeholder="New last name">
-                    </div>
-
-                    <div class="form-group" style="display:inline-block;">
+                  <div class="form-group" style="display:inline-block;">
                       <label for="exampleInputPassword1">Enter a new password</label>
                       <input type="password" name="new_password"
                              class="form-control" id="exampleInputPassword1" placeholder="Password">
