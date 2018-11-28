@@ -63,7 +63,7 @@ function getDailyEvents($weekday) {
 try {
   while ($row = $GLOBALS['result']->fetch_assoc()) {
     if ($row["eventDate"] == $weekday) {
-      echo $row["startTime"] . " - " . $row["endTime"] . $row["description"];
+      echo $row["startTime"] . " - " . $row["endTime"] . ":  " . $row["description"];
       $date = new DateTime($row["eventDate"]);
       $viikko = $date->format("W");
       $viikonpäivä = $date->format("l");
@@ -271,8 +271,7 @@ if ($result->num_rows > 0) {
               <h3> Friday </h3>
               <h5>
                 <?php
-                  $unix = strtotime("Friday");
-                  $friday_date = date("Y-m-d", $unix);
+                  $friday_date = date("Y-m-d", strtotime("Friday"));
                   echo $friday_date;
                 ?>
             </h5>
