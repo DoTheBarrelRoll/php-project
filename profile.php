@@ -280,8 +280,7 @@ try {
               <h3> Friday </h3>
               <h5>
                 <?php
-                  $unix = strtotime("Friday");
-                  $friday_date = date("Y-m-d", $unix);
+                  $friday_date = date("Y-m-d", strtotime("Friday"));
                   echo $friday_date;
                 ?>
             </h5>
