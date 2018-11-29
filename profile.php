@@ -315,6 +315,7 @@ try {
               <h3> Saturday </h3>
               <h5><?php
                   $saturday_date = date("Y-m-d", strtotime("Saturday this week"));
+                  echo $saturday_date;
               ?></h5>
             </div>
 
@@ -334,6 +335,7 @@ try {
               <h3> Sunday </h3>
               <h5><?php
                   $sunday_date = date("Y-m-d", strtotime("Sunday this week"));
+                  echo $sunday_date;
               ?></h5>
             </div>
 
