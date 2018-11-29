@@ -56,41 +56,50 @@ $result = $conn->query($sql2);
 
 $ddate = date();
 $date = new DateTime($ddate);
-$viikko = $date->format("Y-d-m W");
+$viikko = $date->format("W");
+
+echo $viikko;
 
 
-function getDailyEvents($weekday) {
-try {
-  while ($row = $GLOBALS['result']->fetch_assoc()) {
-    if ($row["eventDate"] == $weekday) {
-      echo $row["startTime"] . " - " . $row["endTime"] . $row["description"];
-      $date = new DateTime($row["eventDate"]);
-      $viikko = $date->format("W");
-      $viikonpäivä = $date->format("l");
-      echo "<br>";
-    } else {
-    }
-  }
-} catch (Exception $e) {
-  echo $e->getMessage();
-}
 
-  }
 
-/*
+$rivit = array();
+
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
-    echo  $row["description"], " ";
-    $date = new DateTime($row["eventDate"]);
-    $viikko = $date->format("W");
-    $viikonpäivä = $date->format("l");
-    echo $viikko , " ", $viikonpäivä;
-    echo "<br>";
+
+    $rivit[] = $row;
+    $rowlength = count($row);
   }
 } else {
   echo "Tapahtumia ei löytynyt";
 }
-*/
+$arrlength = count($rivit);
+
+
+
+function getDailyEvents($weekday, $weeknum) {
+try {
+  for($x = 0; $x < $GLOBALS['arrlength']; $x++) {
+    $ddate = $GLOBALS['rivit'][$x]["eventDate"];
+    $date = new DateTime($ddate);
+    $viikko = $date->format("W");
+    if ($GLOBALS['rivit'][$x]["eventDate"] == $weekday and $viikko == $weeknum) {
+      echo $GLOBALS['rivit'][$x]["startTime"] . " - " . $GLOBALS['rivit'][$x]["endTime"] . $GLOBALS['rivit'][$x]["description"];
+      $date = new DateTime($GLOBALS['rivit'][$x]["eventDate"]);
+      $viikko = $date->format("W");
+      $viikonpäivä = $date->format("l");
+      echo "<br>";
+    }
+  }
+
+
+} catch (Exception $e) {
+  echo $e->getMessage();
+}
+
+}
+
 
 
 
@@ -209,7 +218,7 @@ if ($result->num_rows > 0) {
               <br>
               <h4>
                 <?php
-                  getDailyEvents($monday_date);
+                  getDailyEvents($monday_date, $viikko);
                 ?>
               </h4>
             </div>
@@ -282,7 +291,7 @@ if ($result->num_rows > 0) {
               <br>
               <h4>
                   <?php
-                    getDailyEvents($friday_date);
+                    getDailyEvents($friday_date, $viikko);
                   ?>
               </h4>
             </div>
