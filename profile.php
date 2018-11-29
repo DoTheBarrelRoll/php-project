@@ -412,13 +412,13 @@ try {
 
                   <div class="form-group" style="display:inline-block;">
                     <label>Start time:  </label>
-                    <input type="time" name="startTime" style="max-width:90px;"
+                    <input type="time" name="startTime" style="max-width:100px;"
                            class="form-control"  placeholder="Starts">
                   </div>
 
                   <div class="form-group" style="display:inline-block; margin-left: 15px;">
                     <label>End time:  </label>
-                    <input type="time" name="endTime" style="max-width:90px;"
+                    <input type="time" name="endTime" style="max-width:100px;"
                            class="form-control" placeholder="Ends">
                   </div>
                   <br>
