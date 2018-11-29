@@ -84,6 +84,7 @@ try {
     $ddate = $GLOBALS['rivit'][$x]["eventDate"];
     $date = new DateTime($ddate);
     $viikko = $date->format("W");
+
     if ($GLOBALS['rivit'][$x]["eventDate"] == $weekday and $viikko == $weeknum) {
       echo $GLOBALS['rivit'][$x]["startTime"] . " - " . $GLOBALS['rivit'][$x]["endTime"] . $GLOBALS['rivit'][$x]["description"];
       $date = new DateTime($GLOBALS['rivit'][$x]["eventDate"]);
@@ -208,7 +209,7 @@ try {
               <h3> Monday </h3>
               <h5>
                  <?php
-                 $monday_date = date("Y-m-d", strtotime("Monday"));
+                 $monday_date = date("Y-m-d", strtotime("Monday this week"));
                  echo $monday_date;
                 ?>
              </h5>
@@ -228,14 +229,20 @@ try {
 
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Tuesday </h3>
-              <h5> (Date here) </h5>
+              <h5>
+                <?php
+                  $tuesday_date = date("Y-m-d", strtotime("Tuesday this week"));
+                  echo $tuesday_date;
+                ?>
+           </h5>
             </div>
 
             <div class="col-sm-8">
               <br>
-              <h4> You seem to have nothing on your schedule
-                   this Tuesday. Like, the whole day doesn't
-                   seem to even exist. Weird.
+              <h4>
+                <?php
+                  getDailyEvents($tuesday_date, $viikko);
+                ?>
               </h4>
             </div>
           </div>
@@ -244,14 +251,18 @@ try {
 
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Wednesday </h3>
-              <h5> (Date here) </h5>
+              <h5><?php
+                $wednesday_date = date("Y-m-d", strtotime("Wednesday this week"));
+                echo $wednesday_date;
+              ?></h5>
             </div>
 
             <div class="col-sm-8">
               <br>
-              <h4> Whatever you had planned for Wednesday seems to
-                   have completely disappeared. I guess you should
-                   take this opportunity to practice your PHP.
+              <h4>
+                <?php
+                  getDailyEvents($wednesday_date, $viikko);
+                ?>
               </h4>
             </div>
           </div>
