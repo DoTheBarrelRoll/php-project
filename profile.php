@@ -272,16 +272,18 @@ try {
 
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Thursday </h3>
-              <h5> (Date here) </h5>
+              <h5><?php
+                $thursday_date = date("Y-m-d", strtotime("Thursday this week"));
+                echo $thursday_date;
+              ?></h5>
             </div>
 
             <div class="col-sm-8">
               <br>
-              <h4> Ah, Thursday. I think it's the most underappreciated
-                   day of the week. After all, Friday comes right after
-                   and you've had three full days before, meaning you've
-                   also had three full days to work on your projects, which
-                   you of course did, as a responsible student.
+              <h4>
+                <?php
+                  getDailyEvents($thursday_date, $viikko);
+                ?>
               </h4>
             </div>
           </div>
@@ -292,7 +294,7 @@ try {
               <h3> Friday </h3>
               <h5>
                 <?php
-                  $friday_date = date("Y-m-d", strtotime("Friday"));
+                  $friday_date = date("Y-m-d", strtotime("Friday this week"));
                   echo $friday_date;
                 ?>
             </h5>
@@ -312,14 +314,18 @@ try {
 
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Saturday </h3>
-              <h5> (Date here) </h5>
+              <h5><?php
+                  $saturday_date = date("Y-m-d", strtotime("Saturday this week"));
+                  echo $saturday_date;
+              ?></h5>
             </div>
 
             <div class="col-sm-8">
               <br>
-              <h4> Good thinking not scheduling anything for Saturday.
-                   You can now spend the whole day doing homework. I'm so
-                    proud of you for not going out drinking last night!
+              <h4>
+                <?php
+                  getDailyEvents($saturday_date, $viikko);
+                ?>
               </h4>
             </div>
           </div>
@@ -328,14 +334,18 @@ try {
 
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Sunday </h3>
-              <h5> (Date here) </h5>
+              <h5><?php
+                  $sunday_date = date("Y-m-d", strtotime("Sunday this week"));
+                  echo $sunday_date;
+              ?></h5>
             </div>
 
             <div class="col-sm-8">
               <br>
               <h4>
-                  I'm not working on this on Sunday. I don't care
-                  if you had something to do.
+                <?php
+                  getDailyEvents($sunday_date, $viikko);
+                 ?>
               </h4>
             </div>
           </div>
@@ -403,13 +413,13 @@ try {
 
                   <div class="form-group" style="display:inline-block;">
                     <label>Start time:  </label>
-                    <input type="time" name="startTime" style="max-width:90px;"
+                    <input type="time" name="startTime" style="max-width:100px;"
                            class="form-control"  placeholder="Starts">
                   </div>
 
                   <div class="form-group" style="display:inline-block; margin-left: 15px;">
                     <label>End time:  </label>
-                    <input type="time" name="endTime" style="max-width:90px;"
+                    <input type="time" name="endTime" style="max-width:100px;"
                            class="form-control" placeholder="Ends">
                   </div>
                   <br>
