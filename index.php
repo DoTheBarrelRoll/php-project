@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <?php
   session_start();
-  
+
 ?>
 <html lang="en">
   <head>
@@ -13,12 +13,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
-    <link rel="stylesheet" href="tyyli.css">
+    <link rel="stylesheet" href="tyyli-index.css">
 
     <title>Hello, world!</title>
   </head>
   <body>
+    <div class="bg">
 
+    </div>
     <div class="container">
       <div class="jumbotron">
         <h1>Hello  to the shceluder</h1>

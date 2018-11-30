@@ -10,17 +10,31 @@ label {
   color: white;
 }
 
+body {
+    background-image: url("bg.jpeg");
 
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 
 .container {
   height: 100%;
   border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .jumbotron {
   text-align: center;
   margin-top: 5px;
   background: none;
+  color: white;c
 }
 
 .lukkari {
