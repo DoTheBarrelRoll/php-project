@@ -1,0 +1,107 @@
+html, body {
+  height: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+body {
+  background-repeat: repeat;
+}
+
+.container {
+  background-color: white;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.jumbotron {
+  padding-top: 20px;
+  text-align: center;
+  margin-bottom: 0px;
+  background-color: rgb(178, 178, 178);
+}
+
+.lukkari {
+  margin: auto;
+  margin-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+a {
+  margin-top: 10px;
+}
+
+.btn-lukkari {
+  background-color: white;
+}
+
+.card-lukkari {
+  background-color: white;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+
+}
+
+.card-link {
+  margin: auto;
+}
+
+.card-options {
+  margin-bottom: 30px;
+  padding: 5px;
+  max-width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+  border: none;
+}
+
+.card-img {
+  max-width: 75px;
+  max-height: 75px;
+  float:left;
+  padding-right: 10px;
+}
+
+.nav-img {
+  max-width: 25px;
+  max-height: 25px;
+}
+
+.card-link, .card-img, .card-title {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.seasonCard {
+  margin: 5px;
+  text-align: center;
+}
+
+
+.aika {
+  border: 0px solid;
+}
+
+#winterOpt:hover {
+  background: rgba(193, 231, 255, 0.4);
+}
+
+#springOpt:hover {
+  background: rgba(252, 255, 193,0.4);
+}
+
+#summerOpt:hover {
+  background: rgba(214, 255, 193,0.4);
+}
+
+#autumnOpt:hover {
+  background: rgba(255, 197, 173,0.4)
+}
+
+#goBack {
+  display:none;
+}
