@@ -27,7 +27,7 @@ body {
   padding-top: 20px;
   text-align: center;
   margin-bottom: 0px;
-  background-color: rgb(178, 178, 178);
+  background-color: rgba(178, 178, 178,0.3);
 }
 
 .lukkari {
