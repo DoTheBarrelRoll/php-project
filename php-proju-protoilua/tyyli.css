@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  background-image: url('my-profile-tausta.jpg');
+  background-image: url('full-schedule-tausta.jpg');
 
   /* Full height */
   height: 100%;
@@ -27,6 +27,7 @@ body {
   padding-top: 20px;
   text-align: center;
   margin-bottom: 5px;
+  background-color: rgba(178, 178, 178,0.0);
   }
 
 .lukkari {
@@ -41,12 +42,9 @@ a {
   margin-top: 10px;
 }
 
-.btn-lukkari {
-  background-color: white;
-}
 
 .card-lukkari {
-  background-color: white;
+  background-color: rgba(255,255,255,0.1);
   display: inline-block;
   margin-right: 5px;
   margin-left: 5px;
@@ -85,11 +83,18 @@ a {
 }
 
 a.active {
-  border: 2px solid #32C5FF;
+  border: 2px solid rgb(49, 162, 255);
   border-radius: 10px;
   color: white;
-  background-color: #32C5FF;
+  background-color:rgba(50, 197, 255,0.5);
 }
+
+a:hover {
+  border: 1px solid rgb(49, 162, 255);
+  border-radius: 10px;
+  color: white;
+}
+
 
 .aika {
   border: 0px solid;
