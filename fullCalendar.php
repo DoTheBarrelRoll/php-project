@@ -72,8 +72,6 @@
   } catch (Exception $e) {
     echo $e->getMessage();
   }
-  echo $month;
-  echo $kuukausi;
   }
 ?>
 
@@ -110,10 +108,13 @@
       document.getElementById('talviContent').style.display = "block";
     } else if (season == 'kevat') {
       document.body.style.backgroundImage = "url(kevat-iso.jpg)";
+      document.getElementById('kevatContent').style.display = "block";
     } else if (season == 'kesa') {
       document.body.style.backgroundImage = "url(kesa-iso.jpg)";
+      document.getElementById('kesaContent').style.display = "block";
     } else if (season == 'syksy') {
       document.body.style.backgroundImage = "url(syksy-iso.jpg)";
+      document.getElementById('syksyContent').style.display = "block";
     }
   }
 
@@ -124,6 +125,9 @@
         cards[i].style.display = "initial";
     }
     document.getElementById('talviContent').style.display = "none";
+    document.getElementById('kevatContent').style.display = "none";
+    document.getElementById('syksyContent').style.display = "none";
+    document.getElementById('kesaContent').style.display = "none";
     document.getElementById('goBack').style.display = "none";
     document.body.style.backgroundImage = "url(full-schedule-tausta.jpg)";
   }
@@ -131,9 +135,9 @@
 
   </script>
 
-  <div class="container" style="background-color: rgba(255, 255, 255, 0.6);">
+  <div class="container" style="background-color: rgba(255, 255, 255, 0.7);">
 
-      <h1 id="otsikko">Your <?php date("Y",strtotime("now")) ?></h1>
+      <h1 id="otsikko">Your <?php echo date("Y",strtotime("Now")); ?></h1>
       <br>
 
   <div class="row">
@@ -206,43 +210,215 @@
 
   <div id="talviDiv">
 
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs talviOtsikot">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#january"><h4> January </h4></a>
+        <a class="nav-link active talviNappi" data-toggle="tab" href="#january"><h4> January </h4></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#february"><h4>February</h4></a>
+        <a class="nav-link talviNappi" data-toggle="tab" href="#february"><h4>February</h4></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#december"><h4>December</h4></a>
+        <a class="nav-link talviNappi" data-toggle="tab" href="#december"><h4>December</h4></a>
       </li>
     </ul>
 
     <br>
 
       <div class="tab-content">
-        <div class="tab-pane active" id="january"><br>
-        
+        <div class="tab-pane active" id="january">
+          <h5>
             <?php $kuukaus = 1;
 
             getSeasonalEvents($kuukaus);
             ?>
+          </h5>
+
 
 
         </div>
         <div class="tab-pane fade" id="february">
-          <?php $kuukaus = 2;
+          <h5>
+            <?php $kuukaus = 2;
 
-          getSeasonalEvents($kuukaus);
-          ?>
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+
         </div>
-        <div class="tab-pane fade" id="december">...</div>
+        <div class="tab-pane fade" id="december">
+          <h5>
+            <?php $kuukaus = 12;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+        </div>
+      </div>
+
+
+
+  </div>
+
+
+</div>
+</div>
+<div id="kevatContent" style="display:none;">
+  <div id="kevatDiv">
+
+    <ul class="nav nav-tabs kevatOtsikot">
+      <li class="nav-item">
+        <a class="nav-link active kevatNappi" data-toggle="tab" href="#march"><h4> March </h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link kevatNappi" data-toggle="tab" href="#april"><h4>April</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link kevatNappi" data-toggle="tab" href="#may"><h4>May</h4></a>
+      </li>
+    </ul>
+
+    <br>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="march">
+          <h5>
+            <?php $kuukaus = 3;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+
+
+
+        </div>
+        <div class="tab-pane fade" id="april">
+          <h5>
+            <?php $kuukaus = 4;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+
+        </div>
+        <div class="tab-pane fade" id="may">
+          <h5>
+            <?php $kuukaus = 5;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+        </div>
       </div>
 
 
 
   </div>
 </div>
+
+<div id="kesaContent" style="display:none;">
+  <div id="kesaDiv">
+
+    <ul class="nav nav-tabs kesaOtsikot">
+      <li class="nav-item">
+        <a class="nav-link active kesaNappi" data-toggle="tab" href="#june"><h4> June</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link kesaNappi" data-toggle="tab" href="#july"><h4>July</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link kesaNappi" data-toggle="tab" href="#august"><h4>August</h4></a>
+      </li>
+    </ul>
+
+    <br>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="june">
+          <h5>
+            <?php $kuukaus = 6;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+
+
+
+        </div>
+        <div class="tab-pane fade" id="july">
+          <h5>
+            <?php $kuukaus = 7;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+
+        </div>
+        <div class="tab-pane fade" id="august">
+          <h5>
+            <?php $kuukaus = 8;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+        </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+<div id="syksyContent" style="display:none;">
+  <div id="syksyDiv">
+
+    <ul class="nav nav-tabs syksyOtsikot">
+      <li class="nav-item">
+        <a class="nav-link active syksyNappi" data-toggle="tab" href="#september"><h4> September</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link syksyNappi" data-toggle="tab" href="#october"><h4>October</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link syksyNappi" data-toggle="tab" href="#november"><h4>November</h4></a>
+      </li>
+    </ul>
+
+    <br>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="september">
+          <h5>
+            <?php $kuukaus = 9;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+
+
+
+        </div>
+        <div class="tab-pane fade" id="october">
+          <h5>
+            <?php $kuukaus = 10;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+
+        </div>
+        <div class="tab-pane fade" id="november">
+          <h5>
+            <?php $kuukaus = 11;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+          </h5>
+        </div>
+      </div>
+
+
+
+  </div>
 </div>
 
 </div>

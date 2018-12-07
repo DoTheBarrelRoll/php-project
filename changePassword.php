@@ -25,8 +25,18 @@
     exit;
   }
 
+  $passu1 = $_POST["new_password1"];
+  $passu2 = $_POST["new_password2"];
+  $vanhaPassu = $_POST["sign_password"];
+  $sposti = $_SESSION["email"];
+  if ($passu1 == $passu2) {
+    $passu = hash('sha512', $passu1);
+    $sql = "UPDATE 'userinfo' SET 'password'='$passu' WHERE 'email' = '$sposti'";
 
-  $sql = "UPDATE 'userinfo' SET 'password'= WHERE 'email' = sessio_sähköposti";
+    
+  }
+
+
 
   $conn->query($sql);
 

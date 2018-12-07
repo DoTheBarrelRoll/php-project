@@ -1,6 +1,11 @@
 ﻿<!doctype html>
 <?php
   session_start();
+
+  if ($_SESSION["loginAttempt"] > 0) {
+    echo "<script>alert('Incorrect email or password')</script>";
+    $_SESSION["loginAttempt"] = 0;
+  }
 ?>
 <html lang="en">
   <head>

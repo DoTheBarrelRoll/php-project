@@ -28,7 +28,7 @@ body {
   padding-top: 20px;
   text-align: center;
   margin-bottom: 0px;
-  background-color: rgba(178, 178, 178,0.3);
+  background-color: rgba(178, 178, 178,0.5);
 }
 
 .lukkari {
@@ -100,11 +100,49 @@ a {
   background-color: none;
 }
 
-#winterDiv.nav-tabs {
+.talviOtsikot {
     border-bottom-width: 1px;
-    border-color: rgb(193, 231, 255);
+    border-color: rgb(162, 216, 249);
 }
 
+.talviNappi, .talviNappi:hover  {
+    background-color: rgba(193, 231, 255, 0.8);
+    color: rgb(237, 237, 237);
+    border: 1px, white;
+}
+
+.talviNappi.hover {
+  color: rgb(0, 57, 183);
+}
+
+#talviDiv a.active {
+  color: rgb(0, 57, 183);
+  background-color: rgba(193, 231, 255, 0.9);
+  border: 3px;
+  border-color: rgb(162, 216, 249);
+}
+
+.kevatOtsikot {
+  border-bottom-width: 1px;
+  border-color: rgb(215, 239, 143);
+}
+
+.kevatNappi .kevatNappi:hover  {
+  background: rgba(252, 255, 193,0.8);
+  color: rgb(237, 237, 237);
+  border: 2px, white;
+}
+
+.kevatNappi:hover {
+  color: rgb(143, 175, 0);
+}
+
+#kevatDiv a.active {
+  color: rgb(143, 175, 0);
+  background-color: rgba(252, 255, 193, 0.9);
+  border: 3px;
+  border-color: rgb(251, 255, 91);
+}
 
 #winterOpt:hover {
   background: rgba(193, 231, 255, 0.5);

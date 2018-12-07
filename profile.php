@@ -40,6 +40,9 @@ if (!$result) {
     printf("Errormessage: %s\n", mysqli_error($conn));
 }
 
+
+
+//Fetch the first name of the user
 if ($rows = $result->num_rows) {
 
   while ($row = mysqli_fetch_assoc($result)) {
@@ -47,41 +50,43 @@ if ($rows = $result->num_rows) {
   }
 }
 
+//SQL query to get all the calendar items from the database with the users ID
 $sql2 = "SELECT * FROM calendaritem WHERE userID='{$_SESSION['userID']}' ORDER BY eventDate, startTime, endTime";
 
 $result = $conn->query($sql2);
 
-$ddate = date();
-$date = new DateTime($ddate);
-$viikko = $date->format("W");
 
-echo $viikko;
-
-
-
-
+//Create an array to store all the query rows
 $rivit = array();
 
+//Insert the query rows to the array
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
 
     $rivit[] = $row;
-    $rowlength = count($row);
+
   }
 } else {
   echo "Tapahtumia ei löytynyt";
 }
+
+//Save the array length to be used in the function
 $arrlength = count($rivit);
 
 
 
+//This is the function that prints the event for the ongoing week
+//It takes the weekday (Monday, Tuesday...) and the weeknumber as parameters
 function getDailyEvents($weekday, $weeknum) {
 try {
   for($x = 0; $x < $GLOBALS['arrlength']; $x++) {
+    //Check the weeknumber of the calendar event
     $ddate = $GLOBALS['rivit'][$x]["eventDate"];
     $date = new DateTime($ddate);
     $viikko = $date->format("W");
 
+    //If the weeknumber of the event matches with the current weeknumber
+    //and the weekday matches with the specified weekday, print it
     if ($GLOBALS['rivit'][$x]["eventDate"] == $weekday and $viikko == $weeknum) {
       echo $GLOBALS['rivit'][$x]["startTime"] . " - " . $GLOBALS['rivit'][$x]["endTime"] . ":  " . $GLOBALS['rivit'][$x]["description"];
       $date = new DateTime($GLOBALS['rivit'][$x]["eventDate"]);
@@ -209,9 +214,12 @@ try {
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Monday </h3>
               <h5>
+
                  <?php
-                 $monday_date = date("d.m.Y", strtotime("Monday this week"));
-                 echo $monday_date;
+                 $displaymonday_date = date("d.m.Y", strtotime("Monday this week"));
+                 $monday_date = date("Y-m-d", strtotime("Monday this week"));
+                 echo $displaymonday_date;
+
                 ?>
              </h5>
             </div>
@@ -232,8 +240,9 @@ try {
               <h3> Tuesday </h3>
               <h5>
                 <?php
-                  $tuesday_date = date("d.m.Y", strtotime("Tuesday this week"));
-                  echo $tuesday_date;
+                  $displayTuesday_date = date("d.m.Y", strtotime("Tuesday this week"));
+                  $tuesday_date = date("Y-m-d", strtotime("Tuesday this week"));
+                  echo $displayTuesday_date;
                 ?>
            </h5>
             </div>
@@ -253,8 +262,9 @@ try {
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Wednesday </h3>
               <h5><?php
-                $wednesday_date = date("d.m.Y", strtotime("Wednesday this week"));
-                echo $wednesday_date;
+                $displayWednesday_date = date("d.m.Y", strtotime("Wednesday this week"));
+                $wednesday_date = date("Y-m-d", strtotime("Wednesday this week"));
+                echo $displayWednesday_date;
               ?></h5>
             </div>
 
@@ -272,10 +282,13 @@ try {
 
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Thursday </h3>
-              <h5><?php
-                $thursday_date = date("d.m.Y", strtotime("Thursday this week"));
-                echo $thursday_date;
-              ?></h5>
+              <h5>
+                <?php
+                $displayThursday_date = date("d.m.Y", strtotime("Thursday this week"));
+                $thursday_date = date("Y-m-d", strtotime("Thursday this week"));
+                echo $displayThursday_date;
+              ?>
+            </h5>
             </div>
 
             <div class="col-sm-8">
@@ -294,8 +307,9 @@ try {
               <h3> Friday </h3>
               <h5>
                 <?php
-                  $friday_date = date("d.m.Y", strtotime("Friday this week"));
-                  echo $friday_date;
+                  $displayfriday_date = date("d.m.Y", strtotime("Friday this week"));
+                  $friday_date = date("Y-m-d", strtotime("Friday this week"));
+                  echo $displayfriday_date;
                 ?>
             </h5>
             </div>
@@ -315,8 +329,9 @@ try {
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Saturday </h3>
               <h5><?php
-                  $saturday_date = date("d.m.Y", strtotime("Saturday this week"));
-                  echo $saturday_date;
+                  $displaysaturday_date = date("d.m.Y", strtotime("Saturday this week"));
+                  $saturday_date = date("Y-m-d", strtotime("Saturday this week"));
+                  echo $displaysaturday_date;
               ?></h5>
             </div>
 
@@ -335,8 +350,9 @@ try {
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Sunday </h3>
               <h5><?php
-                  $sunday_date = date("d.m.Y", strtotime("Sunday this week"));
-                  echo $sunday_date;
+                  $displaysunday_date = date("d.m.Y", strtotime("Sunday this week"));
+                  $sunday_date = date("Y-m-d", strtotime("Sunday this week"));
+                  echo $displaysunday_date;
               ?></h5>
             </div>
 
@@ -467,13 +483,13 @@ try {
 
                   <div class="form-group" style="display:inline-block;">
                       <label for="exampleInputPassword1">Enter a new password</label>
-                      <input type="password" name="new_password"
+                      <input type="password" name="new_password1"
                              class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
 
                     <div class="form-group" style="display:inline-block;">
                       <label for="exampleInputPassword1">Re-enter your new password</label>
-                      <input type="password" name="new_password"
+                      <input type="password" name="new_password2"
                              class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
 

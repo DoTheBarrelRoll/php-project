@@ -25,10 +25,11 @@
     exit;
   }
 
-
+  //Save email to variable and hash password and save to variable
   $email = $_POST["email"];
   $passu = hash('sha512', $_POST["password"]);
 
+  //Check the database if this user
   $sql = "SELECT * FROM userinfo WHERE email='$email' AND password='$passu'" ;
 
 
@@ -45,7 +46,8 @@
     header("Location: https://1701560.azurewebsites.net/profile.php");
 
   } else {
-      echo "Incorrect email or password";
+      $_SESSION["loginAttempt"] = 1;
+      header("Location: https://1701560.azurewebsites.net/");
   }
 
   mysqli_close($conn);
