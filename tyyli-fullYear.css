@@ -21,6 +21,7 @@ body {
   background-color: white;
   height: 100%;
   border-radius: 20px;
+  overflow: auto;
 }
 
 .jumbotron {
@@ -94,6 +95,16 @@ a {
 .aika {
   border: 0px solid;
 }
+
+.tab-pane {
+  background-color: none;
+}
+
+#winterDiv.nav-tabs {
+    border-bottom-width: 1px;
+    border-color: rgb(193, 231, 255);
+}
+
 
 #winterOpt:hover {
   background: rgba(193, 231, 255, 0.5);

@@ -8,7 +8,7 @@ session_start();
 
 
 
-if (!(isset($_COOKIE[session_name()]))) {
+if (!(isset($_COOKIE[session_name()])) or !(isset($_SESSION["username"]))) {
   header("Location: https://1701560.azurewebsites.net");
 }
 
@@ -48,9 +48,6 @@ if ($rows = $result->num_rows) {
 }
 
 $sql2 = "SELECT * FROM calendaritem WHERE userID='{$_SESSION['userID']}' ORDER BY eventDate, startTime, endTime";
-$sql3= "SET DATEFIRST 1 SELECT * FROM calendaritem WHERE userID='{$_SESSION['userID']}'
-AND 'eventDate' >= dateadd(day, 1-datepart(dw, getdate()), CONVERT(date,getdate()))
-AND 'eventDate' <  dateadd(day, 8-datepart(dw, getdate()), CONVERT(date,getdate()))";
 
 $result = $conn->query($sql2);
 
@@ -86,11 +83,11 @@ try {
     $viikko = $date->format("W");
 
     if ($GLOBALS['rivit'][$x]["eventDate"] == $weekday and $viikko == $weeknum) {
-      echo $GLOBALS['rivit'][$x]["startTime"] . " - " . $GLOBALS['rivit'][$x]["endTime"] . $GLOBALS['rivit'][$x]["description"];
+      echo $GLOBALS['rivit'][$x]["startTime"] . " - " . $GLOBALS['rivit'][$x]["endTime"] . ":  " . $GLOBALS['rivit'][$x]["description"];
       $date = new DateTime($GLOBALS['rivit'][$x]["eventDate"]);
       $viikko = $date->format("W");
       $viikonpäivä = $date->format("l");
-      echo "<br>";
+      echo "<br><hr>";
     }
   }
 
@@ -123,11 +120,14 @@ try {
    </head>
 
    <body>
-     
+
 
      <div class="container">
        <div class="jumbotron">
          <h1>Welcome, <?php echo $name;?></h1>
+         <form action="logout.php" method="post">
+           <button type="submit" class="btn btn-danger" style="margin-top: 30px;">Log out</button>
+         </form>
        </div>
 
        <div class="row">
@@ -151,7 +151,7 @@ try {
             <div class="card-lukkari ">
               <button type="button" class="btn btn-block btn-outline-primary btn-lukkari"
                       data-toggle="collapse" data-target="#lukkari-ti">
-              <div class="card-body" style="align-ontent: center;">
+              <div class="card-body" style="align-content: center;">
                <h4>Tue</h4>
              </div>
            </button>
@@ -210,7 +210,7 @@ try {
               <h3> Monday </h3>
               <h5>
                  <?php
-                 $monday_date = date("Y-m-d", strtotime("Monday this week"));
+                 $monday_date = date("d.m.Y", strtotime("Monday this week"));
                  echo $monday_date;
                 ?>
              </h5>
@@ -232,7 +232,7 @@ try {
               <h3> Tuesday </h3>
               <h5>
                 <?php
-                  $tuesday_date = date("Y-m-d", strtotime("Tuesday this week"));
+                  $tuesday_date = date("d.m.Y", strtotime("Tuesday this week"));
                   echo $tuesday_date;
                 ?>
            </h5>
@@ -253,7 +253,7 @@ try {
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Wednesday </h3>
               <h5><?php
-                $wednesday_date = date("Y-m-d", strtotime("Wednesday this week"));
+                $wednesday_date = date("d.m.Y", strtotime("Wednesday this week"));
                 echo $wednesday_date;
               ?></h5>
             </div>
@@ -273,7 +273,7 @@ try {
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Thursday </h3>
               <h5><?php
-                $thursday_date = date("Y-m-d", strtotime("Thursday this week"));
+                $thursday_date = date("d.m.Y", strtotime("Thursday this week"));
                 echo $thursday_date;
               ?></h5>
             </div>
@@ -294,7 +294,7 @@ try {
               <h3> Friday </h3>
               <h5>
                 <?php
-                  $friday_date = date("Y-m-d", strtotime("Friday this week"));
+                  $friday_date = date("d.m.Y", strtotime("Friday this week"));
                   echo $friday_date;
                 ?>
             </h5>
@@ -315,7 +315,7 @@ try {
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Saturday </h3>
               <h5><?php
-                  $saturday_date = date("Y-m-d", strtotime("Saturday this week"));
+                  $saturday_date = date("d.m.Y", strtotime("Saturday this week"));
                   echo $saturday_date;
               ?></h5>
             </div>
@@ -335,7 +335,7 @@ try {
             <div class="col-sm-3" style="margin-top: 25px">
               <h3> Sunday </h3>
               <h5><?php
-                  $sunday_date = date("Y-m-d", strtotime("Sunday this week"));
+                  $sunday_date = date("d.m.Y", strtotime("Sunday this week"));
                   echo $sunday_date;
               ?></h5>
             </div>
@@ -385,9 +385,6 @@ try {
 
                </div>
 
-               <form action="logout.php" method="post">
-                 <button type="submit" class="btn btn-danger" style="margin-top: 30px;">Log out</button>
-               </form>
               </div>
 
             <div class="col-md-9">
@@ -450,11 +447,14 @@ try {
                   <h3> View your full schedule</h3>
                 </div>
                 <div>
-
+                  <br>
+                  <form action="fullCalendar.php" method="post">
+                    <button type="submit" class="btn btn-info" style="margin-top: 30px;">Go --- ></button>
+                  </form>
                 </div>
               </div>
 
-            <div id="profile" class="container tab-pane card-options media">
+            <div id="profile" class="tab-pane card-options media">
                 <img src="editProfile_small.png"
                      alt="create new" class="card-img">
 

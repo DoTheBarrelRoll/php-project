@@ -1,3 +1,83 @@
+<?php
+  error_reporting(E_ALL);
+  ini_set('error_reporting', E_ALL);
+
+  ini_set('error_log', 'script_errors.log');  // change here
+  ini_set('log_errors', 'On');
+  session_start();
+
+
+
+  if (!(isset($_COOKIE[session_name()])) or !(isset($_SESSION["username"]))) {
+    header("Location: https://1701560.azurewebsites.net");
+  }
+
+
+  $connectstr_dbhost = '';
+  $connectstr_dbname = 'localdb';
+  $connectstr_dbusername = '';
+  $connectstr_dbpassword = '';
+
+  foreach ($_SERVER as $key => $value) {
+  if (strpos($key, "MYSQLCONNSTR_localdb") !== 0) {
+  continue;
+  }
+
+  $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+  $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+  $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+  }
+
+
+  $conn = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword,$connectstr_dbname);
+  $sql2 = "SELECT * FROM calendaritem WHERE userID='{$_SESSION['userID']}' ORDER BY eventDate, startTime, endTime";
+
+  $result = $conn->query($sql2);
+
+  $ddate = date();
+  $date = new DateTime($ddate);
+  $viikko = $date->format("m");
+
+  $rivit = array();
+
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+
+      $rivit[] = $row;
+
+    }
+  } else {
+    echo "Tapahtumia ei löytynyt";
+  }
+
+
+  $arrlength = count($rivit);
+
+
+  function getSeasonalEvents($month) {
+  try {
+    for($x = 0; $x < $GLOBALS['arrlength']; $x++) {
+      $ddate = $GLOBALS['rivit'][$x]["eventDate"];
+      $date = new DateTime($ddate);
+      $kuukausi = $date->format("m");
+
+      if ($kuukausi == $month) {
+        $pvm = date("d.m.Y", strtotime($GLOBALS['rivit'][$x]["eventDate"]));
+        echo $pvm . " - "  . $GLOBALS['rivit'][$x]["description"];
+        echo "<br>";
+      }
+    }
+
+
+  } catch (Exception $e) {
+    echo $e->getMessage();
+  }
+  echo $month;
+  echo $kuukausi;
+  }
+?>
+
+
 <!doctype html>
   <html lang="en">
     <head>
@@ -23,10 +103,11 @@
       cards[i].style.display = "none";
     }
 
-    document.getElementById('goBack').style.display = "inherit";
+    document.getElementById('goBack').style.display = "inline";
 
     if (season == 'talvi') {
       document.body.style.backgroundImage = "url(talvi-iso.jpg)";
+      document.getElementById('talviContent').style.display = "block";
     } else if (season == 'kevat') {
       document.body.style.backgroundImage = "url(kevat-iso.jpg)";
     } else if (season == 'kesa') {
@@ -42,7 +123,7 @@
     for(var i=0;i<cards.length;i++) {
         cards[i].style.display = "initial";
     }
-
+    document.getElementById('talviContent').style.display = "none";
     document.getElementById('goBack').style.display = "none";
     document.body.style.backgroundImage = "url(full-schedule-tausta.jpg)";
   }
@@ -50,17 +131,18 @@
 
   </script>
 
-  <div class="container" style="background-color: rgba(255, 255, 255, 0.75);">
+  <div class="container" style="background-color: rgba(255, 255, 255, 0.6);">
 
-      <h1 id="otsikko">Your (year)</h1>
+      <h1 id="otsikko">Your <?php date("Y",strtotime("now")) ?></h1>
       <br>
+
+  <div class="row">
     <div class="col-md-12">
-    <div class="row">
 
       <button id="goBack"type="button" class="btn btn-primary" onclick="takaisin()"
               style="margin-right: 5px;margin-top:5px;">Return to seasons</button>
 
-      <form action="profile-proto.html" method="post">
+      <form action="profile.php" method="post">
         <button type="submit" class="btn btn-info"style="margin-top: 5px;">Back to profile</button>
       </form>
 
@@ -110,13 +192,59 @@
       </div>
 
 
+    </div>
 
 
 
     </div>
 
-    </div>
+
   </div>
+
+  <div class="row" id="talviContent" style="display:none;">
+    <div class="col-12">
+
+  <div id="talviDiv">
+
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#january"><h4> January </h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#february"><h4>February</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#december"><h4>December</h4></a>
+      </li>
+    </ul>
+
+    <br>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="january"><br>
+        
+            <?php $kuukaus = 1;
+
+            getSeasonalEvents($kuukaus);
+            ?>
+
+
+        </div>
+        <div class="tab-pane fade" id="february">
+          <?php $kuukaus = 2;
+
+          getSeasonalEvents($kuukaus);
+          ?>
+        </div>
+        <div class="tab-pane fade" id="december">...</div>
+      </div>
+
+
+
+  </div>
+</div>
+</div>
+
 </div>
 
 
