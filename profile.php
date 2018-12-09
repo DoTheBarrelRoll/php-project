@@ -390,13 +390,6 @@ try {
                    <h5>View full Schedule</h5>
                  </a>
                </li>
-
-                 <li class="nav-item">
-                   <a class="valinta-nappi nav-link"
-                           data-toggle="tab" href="#profile">
-                   <h5>Manage profile</h5>
-                 </a>
-               </li>
              </ul>
 
                </div>
@@ -469,41 +462,6 @@ try {
                   </form>
                 </div>
               </div>
-
-            <div id="profile" class="tab-pane card-options media">
-                <img src="editProfile_small.png"
-                     alt="create new" class="card-img">
-
-                <div class="media-body">
-                  <h3>Manage your user profile</h3>
-                  <br><br>
-                </div>
-                <div>
-                  <form action="" method="post">
-
-                  <div class="form-group" style="display:inline-block;">
-                      <label for="exampleInputPassword1">Enter a new password</label>
-                      <input type="password" name="new_password1"
-                             class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-
-                    <div class="form-group" style="display:inline-block;">
-                      <label for="exampleInputPassword1">Re-enter your new password</label>
-                      <input type="password" name="new_password2"
-                             class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Enter your old password to allow changes</label> <!-- salasanan syöttö rekisteröityessä -->
-                      <input type="password" name="sign_password"
-                             class="form-control" id="exampleInputPassword1" placeholder="Password">
-                      <small id="emailHelp" class="form-text text-muted">Passwords are hashed with SHA512 so no one can see them, not even us!</small>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-              </div>
-            </div>
 
          </div>
        </div>
