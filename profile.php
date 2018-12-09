@@ -73,6 +73,9 @@ if ($result->num_rows > 0) {
 //Save the array length to be used in the function
 $arrlength = count($rivit);
 
+$ddate = date();
+$date = new DateTime($ddate);
+$viikko = $date->format("W");
 
 
 //This is the function that prints the event for the ongoing week

@@ -32,8 +32,8 @@
   if ($passu1 == $passu2) {
     $passu = hash('sha512', $passu1);
     $sql = "UPDATE 'userinfo' SET 'password'='$passu' WHERE 'email' = '$sposti'";
-
-    
+    $conn->query($sql);
+    header("Location: https://1701560.azurewebsites.net/profile.php");
   }
 
 
