@@ -21,13 +21,14 @@ body {
   background-color: white;
   height: 100%;
   border-radius: 20px;
+  overflow: auto;
 }
 
 .jumbotron {
   padding-top: 20px;
   text-align: center;
   margin-bottom: 0px;
-  background-color: rgba(178, 178, 178,0.3);
+  background-color: rgba(178, 178, 178,0.7);
 }
 
 .lukkari {
@@ -95,6 +96,100 @@ a {
   border: 0px solid;
 }
 
+.tab-pane {
+  background-color: none;
+}
+
+.talviOtsikot {
+  border-bottom-width: 1px;
+  border-color: rgb(162, 216, 249);
+}
+
+
+.talviNappi, .talviNappi:hover  {
+  background: rgba(193, 231, 255, 0.8);
+  color: rgb(1, 91, 130);
+
+}
+
+.talviNappi:hover {
+  color: rgb(0, 57, 183);
+  border-color: rgb(0, 57, 183) !important;
+}
+
+#talviDiv a.active {
+  color: rgb(0, 57, 183);
+  background-color: rgba(193, 231, 255, 0.9);
+  border: 3px;
+  border-color: rgb(162, 216, 249);
+}
+
+.kevatOtsikot {
+  border-bottom-width: 1px;
+  border-color: rgb(215, 239, 143);
+}
+
+.kevatNappi, .kevatNappi:hover  {
+  background: rgba(252, 255, 193,0.8);
+  color: rgb(80, 99, 0);
+}
+
+.kevatNappi:hover {
+  color: rgb(143, 175, 0) ;
+  border-color: rgb(143, 175, 0) !important;
+}
+
+#kevatDiv a.active {
+  color: rgb(143, 175, 0);
+  background-color: rgba(252, 255, 193, 0.9);
+  border: 3px;
+  border-color: rgb(251, 255, 91);
+}
+
+.kesaOtsikot {
+  border-bottom-width: 1px;
+  border-color: rgb(214, 255, 193);
+}
+
+.kesaNappi, .kesaNappi:hover  {
+  background: rgba(214, 255, 193,0.8);
+  color: rgb(80, 99, 0);
+}
+
+.kesaNappi:hover {
+  color: rgb(0, 183, 39) ;
+  border-color: rgb(0, 183, 39) !important;
+}
+
+#kesaDiv a.active {
+  color: rgb(0, 183, 39);
+  background: rgba(214, 255, 193,0.9);
+  border: 3px;
+  border-color: rgb(251, 255, 91);
+}
+
+.syksyOtsikot {
+  border-bottom-width: 1px;
+  border-color: rgb(255, 197, 173);
+}
+
+.syksyNappi, .syksyNappi:hover  {
+  background: rgba(255, 197, 173,0.8);
+  color: rgb(186, 111, 0);
+}
+
+.syksyNappi:hover {
+  color: rgb(232, 65, 0) ;
+  border-color: rgb(232, 65, 0) !important;
+}
+
+#syksyDiv a.active {
+  color: rgb(232, 65, 0);
+  background: rgba(255, 197, 173,0.9);
+  border: 3px;
+  border-color: rgb(251, 255, 91);
+}
+
 #winterOpt:hover {
   background: rgba(193, 231, 255, 0.5);
 }
@@ -108,7 +203,7 @@ a {
 }
 
 #autumnOpt:hover {
-  background: rgba(255, 197, 173,0.5)
+  background: rgba(255, 197, 173,0.5);
 }
 
 #goBack {
