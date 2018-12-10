@@ -27,7 +27,7 @@
     </div>
     <div class="container">
       <div class="jumbotron">
-        <h1>Hello  to the shceluder</h1>
+        <h1>Online scheduler</h1>
       </div>
 
       <div class="row">
