@@ -1,4 +1,5 @@
 <?php
+ date_default_timezone_set("Europe/Helsinki");
   error_reporting(E_ALL);
   ini_set('error_reporting', E_ALL);
 

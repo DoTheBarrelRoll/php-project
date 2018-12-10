@@ -36,7 +36,7 @@ if (mysqli_num_rows($checked) > 0) {
   $conn->query($sql);
   $conn->query($create_time);
   $_SESSION["username"] = $email;
-  header("Location: https://1701560.azurewebsites.net/profile.php");
+  header("Location: https://1701560.azurewebsites.net/");
 
 }
 
